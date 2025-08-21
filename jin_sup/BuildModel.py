@@ -5,10 +5,9 @@ import torchvision.models as M
 
 
 class BuildModel(nn.Module):
-    def __init__(self, model_type:ModelType):
+    def __init__(self, model_type:ModelType, output_feature:int = 2):
         super().__init__()
-        output_feature = 2
-    
+        
         if model_type == ModelType.RESNET18:
             self.model = M.resnet18(M.ResNet18_Weights.IMAGENET1K_V1)
             self.model.fc = nn.Linear(self.model.fc.in_features, output_feature, bias=True)
@@ -23,7 +22,7 @@ class BuildModel(nn.Module):
             self.model = M.vit_b_16(M.ViT_B_16_Weights.IMAGENET1K_V1)
             in_features = self.model.heads.head.in_features
             self.model.heads.head = nn.Linear(in_features, output_feature, bias=True)
-        
+
         else : pass
 
         

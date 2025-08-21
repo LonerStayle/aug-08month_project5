@@ -5,13 +5,16 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "ffmpeg-python>=0.2.0",
     "koreanize-matplotlib>=0.1.1",
+    "librosa>=0.11.0",
     "matplotlib>=3.10.5",
     "numpy<2",
     "pandas>=2.3.1",
     "python-dotenv>=1.1.1",
     "scikit-learn>=1.7.1",
     "seaborn>=0.13.2",
+    "soundfile>=0.13.1",
     "tensorboard>=2.20.0",
     "tensorboardx>=2.6.4",
     "torch>=2.8.0",
