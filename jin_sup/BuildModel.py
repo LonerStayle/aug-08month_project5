@@ -41,6 +41,12 @@ class BuildModel(nn.Module):
             in_features = self.model.heads.head.in_features
             self.model.heads.head = nn.Linear(in_features, output_feature, bias=True)
 
+            
+        elif model_type == ModelType.EFFICIENT_NET_B0:
+            self.model = M.efficientnet_b0(weights)
+            in_features = self.model.classifier[1].in_features
+            self.model.classifier[1] = nn.Linear(in_features, 7)
+            
         else : pass
 
         self.weights = weights
