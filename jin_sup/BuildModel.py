@@ -26,7 +26,7 @@ class BuildModel(nn.Module):
             self.model.classifier[2] = nn.Linear(in_features, output_feature, bias=True)
 
         elif model_type == ModelType.CONVNEXT_BASE:
-            self.model = M.convnext_small(weights)
+            self.model = M.convnext_base(weights)
             in_features = self.model.classifier[2].in_features
             self.model.classifier[2] = nn.Linear(in_features, output_feature, bias=True)
 
