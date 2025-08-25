@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "ffmpeg-python>=0.2.0",
+    "grad-cam>=1.5.5",
     "ipykernel>=6.30.1",
     "koreanize-matplotlib>=0.1.1",
     "librosa>=0.11.0",
