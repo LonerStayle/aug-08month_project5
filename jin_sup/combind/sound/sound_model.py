@@ -20,7 +20,7 @@ def load_sound_model():
     if os.name == "posix":  # Linux, macOS
         path = "/home/wanted-1/PotenupWorkspace/aug-project5/jin_sup/model/model_ConvNeXt_Small_Weights.IMAGENET1K_V1___08-25_20-53-16.pth"
     elif os.name == "nt":  # Windows
-        path = "C:\\PythonProject\\aug-08month_project5\\jin_sup\\model\\model_ConvNeXt_Small_Weights.IMAGENET1K_V1___08-25_20-53-16.pth"
+        path = "C:\\PythonProject\\aug-08month_project5\\jin_sup\\model\\jin_sup/model/model_ConvNeXt_Small_Weights.IMAGENET1K_V1___08-25_20-53-16.pth"
 
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
