@@ -21,7 +21,9 @@ dependencies = [
     "seaborn>=0.13.2",
     "sentence-transformers>=5.1.0",
     "soundfile>=0.13.1",
+    "speechrecognition>=3.14.3",
     "tensorboard>=2.20.0",
     "tensorboardx>=2.6.4",
+    "torchaudio>=2.8.0",
     "tqdm>=4.67.1",
 ]

@@ -36,6 +36,7 @@ class TimeMask(object):
         w, h = img.size
         band = int(w * random.uniform(0.03, self.max_width))
         x0 = random.randint(0, max(0, w - band))
+        
         # 사각형 덮기
         mask = Image.new("RGB", (band, h), tuple(int(255*self.value) for _ in range(3)))
         img.paste(mask, (x0, 0))
