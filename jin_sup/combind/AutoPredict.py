@@ -69,9 +69,10 @@ class AutoPredict:
         self.text_model.eval()
         
         with torch.no_grad():
-            cleaned = clean_text(text)
-            if not cleaned:
-                return {"pred": None, "conf": None}
+            try:
+                cleaned = clean_text(text)
+            except:
+                return {"pred": 0, "conf": 0}
             
             emb = self.text_embedder.encode([cleaned], device=self.device, convert_to_tensor=True)
             outputs = self.text_model(emb)
@@ -134,12 +135,3 @@ class AutoPredict:
         # 수학 수식 써서 어쩌고 저쩌고 결과 만들기(최종 우울증 확률) 아래 result 는 예시 입니다.
         result = image_result + sound_result + text_result
         return result
-
-
-
-
-
-
-        
-
-

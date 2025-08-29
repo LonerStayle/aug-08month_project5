@@ -20,9 +20,9 @@ import torch.nn.functional as F
 def load_sound_model():
 
     if os.name == "posix":  # Linux, macOS
-        path = "/home/wanted-1/PotenupWorkspace/aug-project5/jin_sup/model/model_ConvNeXt_Small_Weights.IMAGENET1K_V1___08-25_20-53-16.pth"
+        path = "/home/wanted-1/PotenupWorkspace/aug-project5/jin_sup/model/model_ConvNeXt_Small_Weights.IMAGENET1K_V1___08-29_02-24-17.pth"
     elif os.name == "nt":  # Windows
-        path = "C:\\PythonProject\\aug-08month_project5\\jin_sup\\model\\\/model_ConvNeXt_Small_Weights.IMAGENET1K_V1___08-25_20-53-16.pth"
+        path = "C:\\PythonProject\\aug-08month_project5\\jin_sup\\model\\model_ConvNeXt_Small_Weights.IMAGENET1K_V1___08-29_02-24-17.pth"
 
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
@@ -35,13 +35,12 @@ def load_sound_model():
 
 def sound_to_image(file):
 
-    audio = AudioSegment.from_file(file, format="m4a")
-    buf = io.BytesIO()
-    audio.export(buf, format="wav")
-    buf.seek(0)
+    # audio = AudioSegment.from_file(file, format="m4a")
+    # buf = io.BytesIO()
+    # audio.export(buf, format="wav")
+    # buf.seek(0)
 
-
-    temp_y, sr =librosa.load(buf, sr=SoundVariable.HZ)
+    temp_y, sr =librosa.load(file, sr=SoundVariable.HZ)
     y, _ = librosa.effects.trim(temp_y, top_db=SoundVariable.TOP_DB)
     S = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=SoundVariable.N_MELS, fmax=SoundVariable.F_MAX)
     S_dB = librosa.power_to_db(S, ref=np.max)
