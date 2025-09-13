@@ -1,5 +1,5 @@
 
-from data_model.ModelType import ModelType
+from jin_sup.data_model.ModelType import ModelType
 import torch.nn as nn
 import torchvision.models as M
 
